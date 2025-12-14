@@ -37,7 +37,7 @@ setNotes(notes.filter((note) => note.id !== id))
 
 
     return ( <div>
-        <h1>Notes App</h1>
+        <h1>Notes App by PUSHPENDRA</h1>
         <AddNote addNote={addNote} />
         <NoteList notes={notes} deleteNote={deleteNote} markUsDone={markUsDone} />
     </div> )
