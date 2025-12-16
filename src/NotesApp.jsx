@@ -16,7 +16,7 @@ return savedNotes ? JSON.parse(savedNotes) : [{ task: "task", id: uuidv4(), isDo
 
     function addNote(newTextList) {
 const newNotes = {task: newTextList, id: uuidv4(), isDone: false}
-setNotes([...notes, newNotes]);
+setNotes([newNotes, ...notes]);
     }
 
     let deleteNote = (id) => {
@@ -35,10 +35,16 @@ setNotes(notes.filter((note) => note.id !== id))
         })
     } 
 
+    // Edit note text by id
+    let editNote = (id, newText) => {
+        if (!newText || !newText.trim()) return;
+        setNotes((prev) => prev.map(n => n.id === id ? { ...n, task: newText } : n));
+    }
+
 
     return ( <div>
         <h1>Notes App by PUSHPENDRA</h1>
         <AddNote addNote={addNote} />
-        <NoteList notes={notes} deleteNote={deleteNote} markUsDone={markUsDone} />
+        <NoteList notes={notes} deleteNote={deleteNote} markUsDone={markUsDone} editNote={editNote} />
     </div> )
 }

@@ -17,6 +17,62 @@
     margin: 0.5rem;
 }
 
+.notesList input {
+    width: 100%;
+    padding: 0.4rem;
+    margin-bottom: 0.5rem;
+    box-sizing: border-box;
+}
+
+.notesList .controls {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.edit-area {
+    width: 400px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Modal styles */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 480px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.modal-content textarea {
+    width: 100%;
+    min-height: 80px;
+    margin-bottom: 0.75rem;
+    box-sizing: border-box;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
 .countainer{
     max-height: 100vh;
     min-width: 100%;
