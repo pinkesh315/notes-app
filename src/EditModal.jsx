@@ -4,21 +4,46 @@ import './NotesList.css';
 export default function EditModal({ isOpen, initialText = '', onSave, onClose }) {
   const [value, setValue] = useState(initialText);
 
+
   useEffect(() => {
     setValue(initialText);
   }, [initialText, isOpen]);
 
-  if (!isOpen) return null;
-
+  if(!isOpen) return;
+  
   function handleSave() {
-    const text = value.trim();
-    if (!text) return;
+    let text = value.trim();
+    if(!text ) return;
     onSave(text);
   }
 
-  let handelInput = (e) => {
-    setValue(e.target.value);
+  function handelInput(event) {
+setValue(event.target.value);
   }
+
+
+
+
+
+
+
+
+
+  // useEffect(() => {
+  //   setValue(initialText);
+  // }, [initialText, isOpen]);
+
+  // if (!isOpen) return null;
+
+  // function handleSave() {
+  //   const text = value.trim();
+  //   if (!text) return;
+  //   onSave(text);
+  // }
+
+  // let handelInput = (e) => {
+  //   setValue(e.target.value);
+  // }
 
   return (
     <div className="modal-overlay" onMouseDown={onClose}>

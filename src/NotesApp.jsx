@@ -23,17 +23,12 @@ setNotes([newNotes, ...notes]);
 setNotes(notes.filter((note) => note.id !== id))
     };
 
-    let markUsDone = (id) => {
+    // Toggle done/undone state
+    let toggleDone = (id) => {
         setNotes((prevData) => {
-         return   prevData.map((note) => {
-                if(note.id === id) {
-                    return {...note, isDone: true}
-                } else {
-                    return note;
-                }
-            })
+         return prevData.map((note) => note.id === id ? { ...note, isDone: !note.isDone } : note)
         })
-    } 
+    }
 
     // Edit note text by id
     let editNote = (id, newText) => {
@@ -45,6 +40,6 @@ setNotes(notes.filter((note) => note.id !== id))
     return ( <div>
         <h1>Notes App by PUSHPENDRA</h1>
         <AddNote addNote={addNote} />
-        <NoteList notes={notes} deleteNote={deleteNote} markUsDone={markUsDone} editNote={editNote} />
+        <NoteList notes={notes} deleteNote={deleteNote} toggleDone={toggleDone} editNote={editNote} />
     </div> )
 }
